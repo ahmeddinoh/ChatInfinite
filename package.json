@@ -1,0 +1,57 @@
+{
+  "name": "incognito-chatgpt",
+  "productName": "Incognito ChatGPT",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "main": "electron/main.mjs",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "dist": "electron-builder --win portable nsis",
+    "install-shortcuts": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/install-shortcuts.ps1"
+  },
+  "devDependencies": {
+    "electron": "^37.2.6",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "local.incognito.chatgpt",
+    "productName": "Incognito ChatGPT",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "signAndEditExecutable": false,
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Incognito ChatGPT"
+    },
+    "portable": {
+      "artifactName": "Incognito-ChatGPT.exe"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Incognito ChatGPT</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: #212121;
+        color: #ececec;
+        font-family: ui-sans-serif, system-ui, Segoe UI, sans-serif;
+      }
+      header {
+        height: 56px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 0 14px;
+        border-bottom: 1px solid #333;
+        box-sizing: border-box;
+      }
+      button {
+        background: #10a37f;
+        color: #fff;
+        border: 0;
+        border-radius: 999px;
+        padding: 8px 14px;
+        font: inherit;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #1a7f64;
+      }
+      .brand {
+        display: flex;
+        flex-direction: column;
+      }
+      .sub {
+        color: #b4b4b4;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <button id="start-over" type="button">New incognito tab</button>
+      <div class="brand">
+        <strong>ChatGPT · no login on this app</strong>
+        <span class="sub">Session lives in RAM. This button wipes cookies and history, then reloads ChatGPT fresh.</span>
+      </div>
+    </header>
+    <script>
+      document.getElementById("start-over").onclick = () => window.incognito.startOver();
+    </script>
+  </body>
+</html>
